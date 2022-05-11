@@ -7,6 +7,9 @@ const HamsterGrid = () => {
     <>
     <h2>Hamster Gallery</h2>
     {/* import hamsterCard and loop through to display */ }
+    <HamsterCard />
+    <HamsterCard />
+    <HamsterCard />
     <Link to="/upload"><button>Add new hamster</button></Link>
     {/* add new hamster leder till: /upload */}
     </>

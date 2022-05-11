@@ -1,0 +1,34 @@
+.cutest-hamster h4 {
+  letter-spacing: 1px;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #a481fb;
+  margin: 0 0 1.5em;
+  text-transform: uppercase;
+}
+
+.cutest-container {
+  display: inline-flex;
+  align-items: center;
+  /* gap: 5em; */
+}
+
+/* .cute-section {
+  width: 50%;
+}
+
+button {
+  background-color: #a481fb;
+  border: 1px solid #a481fb;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  padding: 2em;
+  box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
+} */
+
+.cutest-container img {
+  border-radius: 50%;
+  width: 15em;
+  height: 15em;
+}
