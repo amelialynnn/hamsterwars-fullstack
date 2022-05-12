@@ -8,7 +8,7 @@ import Navbar from './components/navigation/Navbar'
 import LandingPage from './components/landingpage/LandingPage'
 import BattleView from './components/battle/BattleView'
 import HamsterGrid from './components/gallery/HamsterGrid'
-import AddHamster from './components/upload/addHamster'
+import AddHamster from './components/upload/AddHamster'
 import WinnerView from './components/battle/WinnerView'
 import Footer from './components/footer/Footer'
 

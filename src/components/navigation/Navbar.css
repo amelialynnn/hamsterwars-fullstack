@@ -13,8 +13,8 @@
   background-color: #ffccc9;
   border: 1px solid #ffccc9;
   border-radius: 50%;
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
   padding: 2em;
   box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
   display: flex;
@@ -23,8 +23,8 @@
   align-items: center;
 }
 .nav-item:hover {
-  height: 130px;
-  width: 130px;
+  height: 110px;
+  width: 110px;
   transition: width 0.2s;
   font-size: 1.3em;
 }
@@ -48,6 +48,6 @@
     flex-wrap: wrap;
     flex-basis: 50%;
     height: fit-content;
-    margin: 10em 0;
+    margin: 5em 0;
   }
 }
