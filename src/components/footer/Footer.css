@@ -1,3 +1,19 @@
-footer {
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  height: 35vh;
   background-color: #a481fb;
+  text-align: center;
+  font-size: 0.8em;
+  padding-top: 2em;
+}
+
+.footer-container .bi {
+  font-size: 1.5em;
+}
+.footer-container .bi:hover {
+  color: #febc5e;
+  cursor: pointer;
 }

@@ -1,0 +1,25 @@
+.h-one-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25vw;
+}
+
+.img-one {
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+}
+.p-one {
+  margin: 1em 0;
+  font-weight: 500;
+}
+
+@media (max-width: 1050px) {
+  .img-one {
+    width: 180px;
+    height: 180px;
+  }
+}
