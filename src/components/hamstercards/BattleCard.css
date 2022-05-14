@@ -1,4 +1,4 @@
-.h-one-container {
+.battle-card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,19 +6,19 @@
   width: 25vw;
 }
 
-.img-one {
+.battle-card-img {
   border-radius: 50%;
   width: 220px;
   height: 220px;
   object-fit: cover;
 }
-.p-one {
+.battle-card-p {
   margin: 1em 0;
   font-weight: 500;
 }
 
 @media (max-width: 1050px) {
-  .img-one {
+  .battle-card-img {
     width: 180px;
     height: 180px;
   }

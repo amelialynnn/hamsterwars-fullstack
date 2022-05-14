@@ -1,10 +1,11 @@
 import './HeaderBanner.css'
 
+import HamsterVector from './hamster-vector.png'
 
 const HeaderBanner = () => {
   return(
     <section className="banner-container">
-      <img src="../../../src/images/hamster-vector.png" alt="hamster vector" />
+      <img src={HamsterVector} alt="hamster vector" />
       <div className='header-text'>
         <h1>Hamster
           <span>wars</span>

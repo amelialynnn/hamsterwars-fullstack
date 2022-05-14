@@ -1,4 +1,4 @@
-.b-one-container {
+.b-primary-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +6,7 @@
   width: 25vw;
 }
 
-.b-one-container button {
+.b-primary-container button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@
   padding: 1.3em;
   box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
 }
-.b-one-container button:hover {
+.b-primary-container button:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
@@ -27,7 +27,7 @@
 }
 
 @media (max-width: 700px) {
-  .b-one-container button {
+  .b-primary-container button {
     width: 185px;
   }
 }
