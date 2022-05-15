@@ -5,7 +5,7 @@ import './Buttons.css'
 const PrimaryButton = () => {
   return(
     <div className='b-primary-container'>
-      <Link to="/battle" ><button>Start new battle</button></Link>
+      <Link to="/battle" ><button className='primary-btn'>Start new battle</button></Link>
     </div>
   )
 }

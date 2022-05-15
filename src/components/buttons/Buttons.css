@@ -12,8 +12,6 @@
   align-items: center;
   font-size: 1.1em;
   text-transform: uppercase;
-  background-color: #a481fb;
-  border: 1px solid #a481fb;
   border-radius: 0.2em;
   height: 6vw;
   padding: 1.3em;
@@ -23,7 +21,23 @@
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
+}
+
+/* Colors */
+.primary-btn {
+  background-color: #a481fb;
+  border: 1px solid #a481fb;
+}
+.primary-btn:hover {
   background-color: #a481fbed;
+}
+
+.btn-error {
+  background-color: #ffccc9;
+  border: 1px solid #ffccc9;
+}
+.btn-error:hover {
+  background-color: #ffccc9ed;
 }
 
 @media (max-width: 700px) {

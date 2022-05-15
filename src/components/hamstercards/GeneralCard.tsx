@@ -8,12 +8,10 @@ interface Props {
 }
 
 const GeneralCard = ({ hamsterData }: Props) => {
-  console.log(hamsterData)
-
   return (
     <>
     {hamsterData ?
-    (<div key={hamsterData.id} className='general-card-container'>
+    (<div className='general-card-container'>
       <img className='general-card-img' src={fixUrl(`/img/${hamsterData.imgName}`)} alt="Cute hamster" />
       <p className='general-card-p'>{hamsterData.name}</p>
     </div>) : 'Loading...'}

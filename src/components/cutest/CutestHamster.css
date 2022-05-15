@@ -1,3 +1,9 @@
+.cutest-hamster {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .cutest-hamster h4 {
   letter-spacing: 1px;
   font-size: 1.1em;
@@ -11,10 +17,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 4px dotted #a481fb;
+  border-radius: 3px;
+  padding: 2em;
 }
 
 @media (max-width: 1050px) {
   .cutest-container {
     flex-direction: column;
+    padding: 2em 5em;
   }
 }
