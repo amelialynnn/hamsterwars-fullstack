@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 800px;
   border: 4px dotted #a481fb;
   border-radius: 3px;
   padding: 2em;
@@ -26,5 +27,6 @@
   .cutest-container {
     flex-direction: column;
     padding: 2em 5em;
+    width: auto;
   }
 }

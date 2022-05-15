@@ -8,23 +8,35 @@ interface Props {
 }
 
 const GeneralCard = ({ hamsterData }: Props) => {
+
   return (
     <>
     {hamsterData ?
-    (<div className='general-card-container'>
-      <img className='general-card-img' src={fixUrl(`/img/${hamsterData.imgName}`)} alt="Cute hamster" />
-      <p className='general-card-p'>{hamsterData.name}</p>
-    </div>) : 'Loading...'}
+      (<div className="flip-card">
+        <div className="flip-card-inner">
+          <div className="flip-card-front">
+            <img src={fixUrl(`/img/${hamsterData.imgName}`)} alt="Cute hamster" className="general-card-img" />
+            <p className='general-card-p' >{hamsterData.name}</p>
+          </div>
+          <div className="flip-card-back">
+            <h1>{hamsterData.name}</h1>
+            <div className='general-card-p'>
+              <p>Age: {hamsterData.age} years old</p>
+              <p>Favorite food: {hamsterData.favFood}</p>
+              <p>Loves: {hamsterData.loves}</p>
+              <p>Wins: {hamsterData.wins}</p>
+              <p>Defeats: {hamsterData.defeats}</p>
+              <p>Games: {hamsterData.games}</p>
+            </div>
+          </div>
+        </div>
+      </div>)  : 'Loading...'}
     </>
   )
 }
 export default GeneralCard
 
-/* TODO:
-- visa felmeddelande om /hamster/cutest inte finns */
 
 /*
-<p>Bild på hamster + massa info se skiss</p>
-lägg ev in hamstercards/HamsterOne eller ta bort denna och lägg in direkt i HamsterGrid
-<button>Remove hamster</button>
+Jobba vidare med hover card och hur datan visas
 */

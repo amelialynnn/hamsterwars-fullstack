@@ -27,6 +27,8 @@ const HamsterGrid = () => {
     <h2>Hamster Gallery</h2>
     {/* <GeneralCard  hamsterData=""/> */}
     {/* import hamsterCard and loop through to display */ }
+    {/* Möjlighet att ta bort hamser-knapp
+    <button>Remove hamster</button>*/}
 
       {data ? (data.map(hamster =>
         <>
