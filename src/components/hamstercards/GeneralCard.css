@@ -11,7 +11,7 @@
 
 .flip-card {
   width: 300px;
-  height: 340px;
+  height: 310px;
   perspective: 1000px;
 }
 
@@ -39,11 +39,13 @@
   height: 100%;
   backface-visibility: hidden;
   padding: 2em;
+  box-shadow: 0px 5px 5px grey;
 }
 
 .flip-card-front {
   background-color: #a481fb;
   border-radius: 3px;
+  text-transform: uppercase;
 }
 
 .flip-card-back {

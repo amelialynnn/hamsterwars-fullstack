@@ -1,6 +1,40 @@
+.battle-container {
+  text-align: center;
+}
+
 .battle-container h2 {
   letter-spacing: 1px;
   font-size: 3em;
   font-weight: 300;
   margin: 0 0 0.8em;
+  color: #febc5e;
+}
+
+.battle-p {
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+.battle-section {
+  display: flex;
+  justify-content: center;
+  margin: 3em 0;
+}
+
+.vs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #febc5e;
+  font-size: 1.7em;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .battle-section {
+    flex-direction: column;
+    align-items: center;
+  }
 }
