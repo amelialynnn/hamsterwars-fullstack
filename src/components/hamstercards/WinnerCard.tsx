@@ -1,6 +1,6 @@
 import './WinnerCard.css'
 import { useRecoilState } from 'recoil'
-import { WinnerAtom } from '../../atoms/WinnerAtom'
+import { WinnerAtom } from '../../atoms/BattleAtom'
 
 import { fixUrl } from '../../utils'
 import { Hamster } from '../../models/Hamsters'
