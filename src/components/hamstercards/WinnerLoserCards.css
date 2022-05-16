@@ -1,0 +1,10 @@
+.result-card-container {
+  padding: 2em;
+  margin: 2em;
+}
+
+.result-card-img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+}

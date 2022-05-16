@@ -8,7 +8,7 @@ import LandingPage from './components/landingpage/LandingPage'
 import BattleView from './components/battle/BattleView'
 import HamsterGrid from './components/gallery/HamsterGrid'
 import AddHamster from './components/upload/AddHamster'
-import WinnerView from './components/battle/WinnerView'
+import ResultView from './components/battle/ResultView'
 import Footer from './components/footer/Footer'
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
           <Route path='/battle' element={<BattleView />} />
           <Route path='/gallery' element={<HamsterGrid />} />
           <Route path='/upload' element={<AddHamster />} />
-          <Route path='/battle/winner' element={<WinnerView />} />
+          <Route path='/battle/result' element={<ResultView />} />
           <Route path='/' element={<LandingPage />} />
           <Route path='*' element={<LandingPage />}></Route>
         </Routes>

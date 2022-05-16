@@ -1,19 +1,21 @@
 import { useRecoilState } from 'recoil'
-import { WinnerAtom } from '../../atoms/BattleAtom'
+import { LoserAtom } from '../../atoms/BattleAtom'
 import { useEffect, useState } from 'react'
 import { fixUrl } from '../../utils'
+
 
 import { Hamster } from '../../models/Hamsters'
 import './WinnerLoserCards.css'
 
-const WinnerCard = () => {
-  const [winner, setWinner] = useRecoilState(WinnerAtom)
+const LoserCard = () => {
+  const [loser, setLoser] = useRecoilState(LoserAtom)
   const [updatedResult, setUpdatedResult] = useState< null | Hamster>(null)
 
   useEffect(()  => {
     async function getData() {
-      const response: Response = await fetch(fixUrl(`/hamsters/${winner?.id}`))
+      const response: Response = await fetch(fixUrl(`/hamsters/${loser?.id}`))
 			const apiData: Hamster = await response.json()
+      console.log(apiData)
       setUpdatedResult(apiData)
     }
     getData()
@@ -21,9 +23,9 @@ const WinnerCard = () => {
 
   return (
     <div className='.result-card-container'>
-      <h2>The winner is {winner?.name}</h2>
-      <img className='result-card-img' src={fixUrl(`/img/${winner?.imgName}`)} alt="winning hamster" />
-      <p>{winner?.name} is {winner?.age} years old and looooves to eat {winner?.favFood} and {winner?.loves}.</p>
+      <h2>Better luck next time {loser?.name}</h2>
+      <img className='result-card-img' src={fixUrl(`/img/${loser?.imgName}`)} alt="losing hamster"/>
+      <p>{loser?.name} is {loser?.age} years old and looooves to eat {loser?.favFood} and {loser?.loves}.</p>
       <div>
         <p>Wins: {updatedResult?.wins}</p>
         <p>Defeats: {updatedResult?.defeats}</p>
@@ -33,5 +35,4 @@ const WinnerCard = () => {
   )
 }
 
-
-export default WinnerCard
+export default LoserCard

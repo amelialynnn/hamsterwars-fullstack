@@ -7,4 +7,9 @@ const WinnerAtom = atom<Hamster | null>({
   default: null
 })
 
-export { WinnerAtom }
+const LoserAtom = atom<Hamster | null>({
+  key: 'LoserAtom',
+  default: null
+})
+
+export { WinnerAtom, LoserAtom }

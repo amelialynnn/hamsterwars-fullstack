@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import { useRecoilState } from 'recoil'
-import { WinnerAtom } from '../../atoms/BattleAtom'
+import { WinnerAtom, LoserAtom } from '../../atoms/BattleAtom'
 
 import { Hamster } from '../../models/Hamsters'
 
@@ -17,6 +17,7 @@ const BattleView = () => {
   const [randomTwo, setRandomTwo] = useState<Hamster | null>(null)
 
   const [winner, setWinner] = useRecoilState(WinnerAtom)
+  const [loser, setLoser] = useRecoilState(LoserAtom)
 
   useEffect(() => {
     async function getData() {
@@ -32,7 +33,8 @@ const BattleView = () => {
 			const response: Response = await fetch(fixUrl('/hamsters/random'))
 			const apiData: Hamster = await response.json()
 
-      if (randomOne === apiData) {
+      //denna funkar ej....
+      if (randomOne?.id === apiData.id) {
         getData()
       } else {
         setRandomTwo(apiData)
@@ -43,11 +45,15 @@ const BattleView = () => {
 
 
   const handleBattle = (winner: Hamster, loser: Hamster) => {
+    setLoser(loser)
+    setWinner(winner)
+
     fetch(fixUrl(`/hamsters/${winner.id}`), {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        wins: winner.wins + 1
+        wins: winner.wins + 1,
+        games: winner.games + 1
        })
     })
 
@@ -55,7 +61,8 @@ const BattleView = () => {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        defeats: loser.defeats + 1
+        defeats: loser.defeats + 1,
+        games: loser.games + 1
        })
     })
 
@@ -75,11 +82,11 @@ const BattleView = () => {
       <p className='battle-p'>Click on the cutest hamster</p>
       <div className='battle-section'>
           {randomOne && randomTwo ?
-          (<Link to='/battle/winner' onClick={() => {setWinner(randomOne); handleBattle(randomOne, randomTwo)}}><BattleCard randomHamster={randomOne} />
+          (<Link to='/battle/winner' onClick={() => handleBattle(randomOne, randomTwo)}><BattleCard randomHamster={randomOne} />
           </Link>) : 'no data'}
           <p className='vs'>vs</p>
           {randomTwo && randomOne ?
-          (<Link to='/battle/winner' onClick={() => {setWinner(randomTwo); handleBattle(randomTwo, randomOne)}}><BattleCard randomHamster={randomTwo}/>
+          (<Link to='/battle/result' onClick={() => handleBattle(randomTwo, randomOne)}><BattleCard randomHamster={randomTwo}/>
           </Link>) : 'no data'}
       </div>
     </section>
