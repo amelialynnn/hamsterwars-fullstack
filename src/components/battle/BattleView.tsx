@@ -21,20 +21,30 @@ const BattleView = () => {
 
   useEffect(() => {
     async function getFirstContender() {
-			const response: Response = await fetch(fixUrl('/hamsters/random'))
-			const HamsterData: Hamster = await response.json()
-			setFirstHamster(HamsterData)
+			try {
+        const response: Response = await fetch(fixUrl('/hamsters/random'))
+			  const HamsterData: Hamster = await response.json()
+			  setFirstHamster(HamsterData)
+      } catch (error) {
+          return error
+        }
 		}
     getFirstContender()
 
     async function getSecondContender() {
-			const response: Response = await fetch(fixUrl('/hamsters/random'))
-			const HamsterData: Hamster = await response.json()
+      try {
+        const response: Response = await fetch(fixUrl('/hamsters/random'))
+        const HamsterData: Hamster = await response.json()
 
-      if (firstHamster?.id === HamsterData.id) {
-        getSecondContender()
-      } else {
-        setSecondHamster(HamsterData)
+        if (firstHamster?.id === HamsterData.id) {
+          getSecondContender()
+          return
+        } else {
+          setSecondHamster(HamsterData)
+        }
+
+      } catch (error) {
+        return error
       }
 		}
     getSecondContender()

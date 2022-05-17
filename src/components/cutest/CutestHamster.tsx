@@ -14,21 +14,24 @@ const CutestHamster = () => {
   const [cutest, setCutest] = useState<Hamster[] | null>(null)
 
   useEffect(() => {
-    async function getData() {
-			const response: Response = await fetch(fixUrl('/hamsters/cutest'))
-			const apiData: Hamster[] = await response.json()
+    async function getCutest() {
+      try {
+        const response: Response = await fetch(fixUrl('/hamsters/cutest'))
+        const CutestData: Hamster[] = await response.json()
 
-      if (apiData.length > 1) {
-        const randomCutest = []
-        randomCutest.push(apiData[Math.floor(Math.random() * apiData.length)])
-        setCutest(randomCutest)
-        return
-      } else {
-        setCutest(apiData)
+        if (CutestData.length > 1) {
+          const randomCutest = []
+          randomCutest.push(CutestData[Math.floor(Math.random() * CutestData.length)])
+          setCutest(randomCutest)
+          return
+        } else {
+          setCutest(CutestData)
+        }
+      } catch (error) {
+        return error
       }
-      return
 		}
-    getData()
+    getCutest()
   }, [])
 
   return (

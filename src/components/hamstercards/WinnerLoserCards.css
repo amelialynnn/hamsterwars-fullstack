@@ -1,10 +1,41 @@
 .result-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 2em;
   margin: 2em;
 }
 
+.result-card-container .reverse {
+  flex-direction: row-reverse;
+}
+
+.result-card-container h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+.result-card {
+  display: flex;
+}
+
+.r-card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  padding: 2em;
+}
+.r-highlight {
+  font-weight: 700;
+  padding-top: 1em;
+}
+
 .result-card-img {
-  width: 220px;
-  height: 220px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
 }

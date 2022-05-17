@@ -18,14 +18,18 @@ const LoserCard = () => {
   }
 
   return (
-    <div className='.result-card-container'>
+    <div className='result-card-container'>
       <h2>Better luck next time {updateLoser?.name}</h2>
-      <img className='result-card-img' src={fixUrl(`/img/${updateLoser?.imgName}`)} alt="losing hamster"/>
-      <p>{updateLoser?.name} is {updateLoser?.age} years old and looooves to eat {updateLoser?.favFood} and {updateLoser?.loves}.</p>
-      <div>
-        <p>Wins: {updateLoser?.wins}</p>
-        <p>Defeats: {updateLoser?.defeats}</p>
-        <p>Games: {updateLoser?.games}</p>
+      <div className='result-card'>
+        <img className='result-card-img' src={fixUrl(`/img/${updateLoser?.imgName}`)} alt="losing hamster"/>
+        <div className='r-card-text'>
+          <p>{updateLoser?.name} is {updateLoser?.age} years old and looooves to eat {updateLoser?.favFood} and {updateLoser?.loves}.</p>
+          <span className='r-highlight'>
+            <p>Wins: {updateLoser?.wins}</p>
+              <p>Defeats: {updateLoser?.defeats}</p>
+              <p>Games: {updateLoser?.games}</p>
+          </span>
+        </div>
       </div>
     </div>
   )

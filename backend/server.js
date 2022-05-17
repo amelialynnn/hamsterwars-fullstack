@@ -8,7 +8,6 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 const app = express()
 const PORT = process.env.PORT || 3001
 
-//const staticFolder = path.join(__dirname, 'public')
 const distPath = path.join(__dirname, '/../dist/')
 const staticImages = path.join(__dirname, '/public/img/')
 
@@ -26,12 +25,9 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-// Serve static files in this folder
-app.use(express.static('public'))
-
-//NYTT för frontend --> dist/index.html
+//För distmappen '/' matchar dist/index.html
 app.use(express.static(distPath))
-//För bilder --> public/img/hamster-3.jpg
+//För bilder '/img/hamster-14.jpg' matchar '/public/img/'
 app.use('/img', express.static(staticImages))
 
 // Logger - skriv ut information om inkommande request
