@@ -26,14 +26,13 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-//NYTT för frontend --> dist/index.html
-app.use(express.static(distPath))
-
-//För bilder --> public/img/hamster-3.jpg
-app.use('/img', express.static(staticImages))
-
 // Serve static files in this folder
 app.use(express.static('public'))
+
+//NYTT för frontend --> dist/index.html
+app.use(express.static(distPath))
+//För bilder --> public/img/hamster-3.jpg
+app.use('/img', express.static(staticImages))
 
 // Logger - skriv ut information om inkommande request
 app.use((req, res, next) => {

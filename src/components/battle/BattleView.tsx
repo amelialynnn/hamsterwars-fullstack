@@ -13,36 +13,32 @@ import './Battle.css'
 
 const BattleView = () => {
 
-  const [randomOne, setRandomOne] = useState<Hamster | null>(null)
-  const [randomTwo, setRandomTwo] = useState<Hamster | null>(null)
+  const [firstHamster, setFirstHamster] = useState<Hamster | null>(null)
+  const [secondHamster, setSecondHamster] = useState<Hamster | null>(null)
 
   const [winner, setWinner] = useRecoilState(WinnerAtom)
   const [loser, setLoser] = useRecoilState(LoserAtom)
 
   useEffect(() => {
-    async function getData() {
+    async function getFirstContender() {
 			const response: Response = await fetch(fixUrl('/hamsters/random'))
-			const apiData: Hamster = await response.json()
-			setRandomOne(apiData)
+			const HamsterData: Hamster = await response.json()
+			setFirstHamster(HamsterData)
 		}
-    getData()
-  }, [])
+    getFirstContender()
 
-  useEffect(() => {
-    async function getData() {
+    async function getSecondContender() {
 			const response: Response = await fetch(fixUrl('/hamsters/random'))
-			const apiData: Hamster = await response.json()
+			const HamsterData: Hamster = await response.json()
 
-      //denna funkar ej....
-      if (randomOne?.id === apiData.id) {
-        getData()
+      if (firstHamster?.id === HamsterData.id) {
+        getSecondContender()
       } else {
-        setRandomTwo(apiData)
+        setSecondHamster(HamsterData)
       }
 		}
-    getData()
+    getSecondContender()
   }, [])
-
 
   const handleBattle = (winner: Hamster, loser: Hamster) => {
     setLoser(loser)
@@ -81,12 +77,12 @@ const BattleView = () => {
       <h2>Let the battle begin!</h2>
       <p className='battle-p'>Click on the cutest hamster</p>
       <div className='battle-section'>
-          {randomOne && randomTwo ?
-          (<Link to='/battle/winner' onClick={() => handleBattle(randomOne, randomTwo)}><BattleCard randomHamster={randomOne} />
+          {firstHamster && secondHamster ?
+          (<Link to='/battle/result' onClick={() => handleBattle(firstHamster, secondHamster)}><BattleCard randomHamster={firstHamster} />
           </Link>) : 'no data'}
           <p className='vs'>vs</p>
-          {randomTwo && randomOne ?
-          (<Link to='/battle/result' onClick={() => handleBattle(randomTwo, randomOne)}><BattleCard randomHamster={randomTwo}/>
+          {secondHamster && firstHamster ?
+          (<Link to='/battle/result' onClick={() => handleBattle(secondHamster, firstHamster)}><BattleCard randomHamster={secondHamster}/>
           </Link>) : 'no data'}
       </div>
     </section>

@@ -21,9 +21,9 @@ const App = () => {
       <main>
         <Routes>
           <Route path='/battle' element={<BattleView />} />
+          <Route path='/battle/result' element={<ResultView />} />
           <Route path='/gallery' element={<HamsterGrid />} />
           <Route path='/upload' element={<AddHamster />} />
-          <Route path='/battle/result' element={<ResultView />} />
           <Route path='/' element={<LandingPage />} />
           <Route path='*' element={<LandingPage />}></Route>
         </Routes>

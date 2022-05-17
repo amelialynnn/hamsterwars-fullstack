@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import './Buttons.css'
 
-const PrimaryButton = () => {
+const StartBattleButton = () => {
   return(
     <div className='b-primary-container'>
       <Link to="/battle" ><button className='primary-btn'>Start new battle</button></Link>
@@ -10,4 +10,4 @@ const PrimaryButton = () => {
   )
 }
 
-export default PrimaryButton
+export default StartBattleButton
