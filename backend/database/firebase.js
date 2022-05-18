@@ -13,7 +13,6 @@ if (process.env.PRIVATE_KEY) {
   firebaseConfig = require('./firebaseConfig.json')
 }
 
-// test .env
 //let firebaseConfig = require('./firebaseConfig.json')
 
 // OBS! firebaseConfig.json ska INTE finnas med i ditt git-repot. Lägg till filnamnet i din .gitignore.

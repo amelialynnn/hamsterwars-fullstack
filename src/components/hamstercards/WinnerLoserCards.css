@@ -4,8 +4,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2em;
-  margin: 2em;
+  margin: 3em;
 }
 
 .result-card-container .reverse {
@@ -14,28 +13,88 @@
 
 .result-card-container h2 {
   text-transform: uppercase;
+  font-size: 2em;
   font-weight: 400;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  color: #febc5e;
 }
 
 .result-card {
   display: flex;
+  /* background-color: #a481fb; */
+  border-radius: 3px;
+}
+.winner {
+  background-color: #ffccc9 /* #8aeb89 */;
+}
+.loser {
+  background-color: #ffccc9 /* #fa7070 */;
 }
 
 .r-card-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 300px;
+  font-size: 1.2em;
+  width: 350px;
   padding: 2em;
 }
 .r-highlight {
-  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 1.3em;
   padding-top: 1em;
 }
 
+.r-highlight > :first-child {
+  margin-right: 0.5em;
+}
+
 .result-card-img {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   object-fit: cover;
+  border-radius: 3px;
+}
+
+@media (max-width: 1050px) {
+  .r-card-text {
+    font-size: 1.1em;
+    width: 300px;
+  }
+
+  .r-highlight {
+    font-size: 1.2em;
+  }
+
+  .result-card-img {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 700px) {
+  .r-card-text {
+    font-size: 1em;
+    width: 220px;
+  }
+
+  .r-highlight {
+    font-size: 1.1em;
+  }
+
+  .result-card-img {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 500px) {
+  .result-card,
+  .result-card-container .reverse {
+    flex-direction: column;
+  }
 }

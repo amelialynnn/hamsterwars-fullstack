@@ -5,7 +5,7 @@ import { Hamster } from '../../models/Hamsters'
 
 import GeneralCard from '../hamstercards/GeneralCard'
 import ErrorMessage from '../error/ErrorMessage'
-import StartBattleButton from '../buttons/StartBattleButton'
+import BattleButtonOne from '../buttons/BattleButtonOne'
 
 import './CutestHamster.css'
 
@@ -41,7 +41,7 @@ const CutestHamster = () => {
         {cutest.map((cute) => (
           <GeneralCard key={cute.id} hamsterData={cute} />
         ))}
-        <StartBattleButton />
+        <BattleButtonOne />
       </div>) : (
         <ErrorMessage setCutest={setCutest}/>)}
      </section>

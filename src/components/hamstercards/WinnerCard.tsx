@@ -19,7 +19,7 @@ const WinnerCard = () => {
   return (
     <div className='result-card-container'>
       <h2>The winner is {updateWinner?.name}</h2>
-      <div className='result-card reverse'>
+      <div className='result-card reverse winner'>
         <img className='result-card-img' src={fixUrl(`/img/${updateWinner?.imgName}`)} alt="winning hamster" />
         <div className='r-card-text'>
           <p>{updateWinner?.name} is {updateWinner?.age} years old and looooves to eat {updateWinner?.favFood} and {updateWinner?.loves}.</p>

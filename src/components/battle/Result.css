@@ -1,4 +1,5 @@
 .result-container {
   display: flex;
-  /* background-color: #ffccc9; */
+  flex-direction: column;
+  margin-bottom: 10em;
 }
