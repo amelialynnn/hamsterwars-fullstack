@@ -26,3 +26,4 @@ dist-ssr
 
 clone/
 firebaseConfig.json
+.env
