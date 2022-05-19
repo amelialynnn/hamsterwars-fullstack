@@ -1,0 +1,57 @@
+.hamster-gallery {
+  margin-bottom: 10em;
+}
+
+.hamster-gallery h2 {
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 3em;
+  font-weight: 300;
+  margin: 0 0 1.5em;
+}
+
+.hamster-gallery .gallery-btn {
+  margin-bottom: 4em;
+}
+
+.hamster-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  width: 900px;
+  gap: 3em;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hamster-wrapper .flip-card {
+  width: 250px;
+}
+
+.hamster-wrapper .general-card-img {
+  width: 200px;
+  height: 200px;
+}
+
+@media (max-width: 1300px) {
+  .hamster-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1050px) {
+  .hamster-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+    width: 80vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .hamster-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
