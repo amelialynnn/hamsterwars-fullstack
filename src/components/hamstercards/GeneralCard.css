@@ -7,6 +7,10 @@
 .general-card-p {
   margin: 1em 0;
   font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .flip-card {
@@ -52,6 +56,14 @@
   background-color: #a481fb76;
   border-radius: 3px;
   transform: rotateY(180deg);
+}
+
+/* Hamster Gallary */
+.remove-hamster {
+  display: none;
+}
+.hide-waring {
+  display: none;
 }
 
 @media (max-width: 1050px) {

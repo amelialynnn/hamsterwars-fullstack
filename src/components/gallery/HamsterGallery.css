@@ -36,6 +36,46 @@
   height: 200px;
 }
 
+/* Remove button */
+.hamster-wrapper .remove-hamster {
+  width: 100px;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5em;
+  padding: 0.5em 2em;
+  background-color: #febc5e;
+  border: 1px solid #febc5e;
+  border-radius: 3px;
+}
+.hamster-wrapper .remove-hamster:hover {
+  background-color: #febc5eed;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+
+.hamster-wrapper .bi-trash3 {
+  margin-left: 1em;
+}
+
+/* Warning message */
+.hide-waring {
+  display: none;
+}
+.show-waring {
+  display: block;
+}
+
+.hide-general-info {
+  display: none;
+}
+
+.hamster-wrapper .gallery-error {
+  text-align: center;
+}
+
 @media (max-width: 1300px) {
   .hamster-wrapper {
     grid-template-columns: repeat(3, 1fr);

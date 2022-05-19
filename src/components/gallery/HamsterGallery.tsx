@@ -1,5 +1,5 @@
 import { fixUrl } from '../../utils'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useTransition } from 'react'
 import { Hamster } from '../../models/Hamsters'
 
 import GeneralCard from '../hamstercards/GeneralCard'
@@ -26,11 +26,9 @@ const HamsterGallery = () => {
     <section className='hamster-gallery'>
       <h2>Hamster Gallery</h2>
       <GalleryButton />
-      {/* Möjlighet att ta bort hamser-knapp
-      <button>Remove hamster</button>*/}
       <div className='hamster-wrapper'>
         {data ? (data.map(hamster =>
-        <GeneralCard key={hamster.id} hamsterData={hamster} />)) : (<p>Yikes! Something went wrong...</p>)}
+        <GeneralCard key={hamster.id} hamsterData={hamster} />)) : (<p className='gallery-error'>Yikes! Something went wrong...</p>)}
       </div>
     </section>
   )
