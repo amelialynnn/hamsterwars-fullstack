@@ -1,0 +1,16 @@
+.add-hamster-container {
+  text-align: center;
+}
+
+.form-input {
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+
+.error-message {
+  color: #f3716a;
+}
+.error-input {
+  border: 1px solid #f3716a;
+  border-radius: 2px;
+}

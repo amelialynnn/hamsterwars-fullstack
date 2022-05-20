@@ -10,4 +10,15 @@ function fixUrl(url: string): string {
   }
 }
 
+function fixImageUrl(imgName: string) {
+  if (imgName.startsWith('hamster')) {
+    return (fixUrl(`/img/${imgName}`))
+  } else if (imgName.startsWith('http')) {
+    return imgName
+  } else {
+    return (fixUrl('/img/default-image.png'))
+  }
+}
+
 export { fixUrl }
+export { fixImageUrl }

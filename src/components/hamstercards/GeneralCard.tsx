@@ -1,4 +1,4 @@
-import { fixUrl } from '../../utils'
+import { fixUrl, fixImageUrl } from '../../utils'
 import { useState } from 'react'
 import { useRecoilState } from 'recoil'
 
@@ -6,7 +6,6 @@ import { HamstersAtom } from '../../atoms/HamstersAtom'
 import { Hamster } from '../../models/Hamsters'
 
 import './GeneralCard.css'
-
 
 interface Props {
   hamsterData: Hamster
@@ -46,7 +45,7 @@ const GeneralCard = ({ hamsterData }: Props) => {
       (<div className="flip-card">
         <div className="flip-card-inner">
           <div className="flip-card-front">
-            <img src={fixUrl(`/img/${hamsterData.imgName}`)} alt="Cute hamster" className="general-card-img" />
+            <img src={fixImageUrl(hamsterData.imgName)} alt="Cute hamster" className="general-card-img" />
             <p className='general-card-p' >{hamsterData.name}</p>
           </div>
           <div className="flip-card-back">
@@ -67,7 +66,7 @@ const GeneralCard = ({ hamsterData }: Props) => {
             </div>
           </div>
         </div>
-      </div>)  : 'Loading...'}
+      </div>)  : <p>Loading...</p>}
     </>
   )
 }

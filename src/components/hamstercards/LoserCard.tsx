@@ -1,7 +1,7 @@
 import { useRecoilState } from 'recoil'
 import { LoserAtom } from '../../atoms/BattleAtom'
 import { useState } from 'react'
-import { fixUrl } from '../../utils'
+import { fixImageUrl } from '../../utils'
 
 
 import { Hamster } from '../../models/Hamsters'
@@ -19,18 +19,25 @@ const LoserCard = () => {
 
   return (
     <div className='result-card-container'>
-      <h2>Better luck next time {updateLoser?.name}</h2>
-      <div className='result-card loser'>
-        <img className='result-card-img' src={fixUrl(`/img/${updateLoser?.imgName}`)} alt="losing hamster"/>
-        <div className='r-card-text'>
-          <p>{updateLoser?.name} is {updateLoser?.age} years old and looooves to eat {updateLoser?.favFood} and {updateLoser?.loves}.</p>
-          <span className='r-highlight'>
-            <p>Wins: {updateLoser?.wins}</p>
-            <p>Defeats: {updateLoser?.defeats}</p>
-            <p>Games: {updateLoser?.games}</p>
-          </span>
+      {updateLoser ?
+      <>
+        <h2>Better luck next time {updateLoser.name}</h2>
+        <div className='result-card loser'>
+          <img className='result-card-img'
+          src={fixImageUrl(updateLoser.imgName)}
+          alt="losing hamster"/>
+          <div className='r-card-text'>
+            <p>{updateLoser.name} is {updateLoser.age} years old and looooves to eat {updateLoser.favFood} and {updateLoser.loves}.</p>
+            <span className='r-highlight'>
+              <p>Wins: {updateLoser.wins}</p>
+              <p>Defeats: {updateLoser.defeats}</p>
+              <p>Games: {updateLoser.games}</p>
+            </span>
+          </div>
         </div>
-      </div>
+      </>
+      : <p>Loading...</p> }
+
     </div>
   )
 }
