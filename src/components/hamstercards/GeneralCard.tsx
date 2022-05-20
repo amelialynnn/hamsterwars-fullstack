@@ -1,6 +1,8 @@
 import { fixUrl } from '../../utils'
 import { useState } from 'react'
+import { useRecoilState } from 'recoil'
 
+import { HamstersAtom } from '../../atoms/HamstersAtom'
 import { Hamster } from '../../models/Hamsters'
 
 import './GeneralCard.css'
@@ -11,6 +13,7 @@ interface Props {
 }
 
 const GeneralCard = ({ hamsterData }: Props) => {
+  const [hamsters, setHamsters] = useRecoilState(HamstersAtom)
 
   const [hamsterInfo, setHamsterInfo] = useState('general-card-p')
   const [removeWarning, setRemoveWarning] = useState('hide-waring')
@@ -28,7 +31,13 @@ const GeneralCard = ({ hamsterData }: Props) => {
     fetch(fixUrl(`/hamsters/${id}`), {
       method: 'DELETE',
     })
-    alert(`deleted ${id}`)
+
+    if (hamsters) {
+      let updatedHamsters = [...hamsters].filter((hamster) => {
+        return hamster.id !== id;
+      })
+      setHamsters(updatedHamsters)
+    }
   }
 
   return (
