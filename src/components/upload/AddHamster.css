@@ -1,16 +1,115 @@
-.add-hamster-container {
+.add-hamster-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.form-input {
+.add-hamster-section h2 {
+  letter-spacing: 1px;
+  font-size: 3em;
+  font-weight: 300;
+  margin: 0 1em 1.5em;
+}
+
+.add-hamster-section .success-message {
+  font-size: 2em;
+  width: 500px;
+  margin-bottom: 3em;
+}
+
+.add-hamster-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffccc9;
+  margin-bottom: 10em;
+  padding: 4em 1em;
+  border-radius: 3px;
+  width: 600px;
+}
+
+.add-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin-bottom: 1em;
+}
+
+.input-container label {
+  align-self: flex-start;
+  margin-bottom: 0.3em;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
   border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.add-form-container .input-valid {
   border-radius: 2px;
 }
 
-.error-message {
-  color: #f3716a;
-}
-.error-input {
-  border: 1px solid #f3716a;
+.add-form-container .input-fail {
+  border: 1.8px solid #a481fb;
   border-radius: 2px;
+}
+
+.add-form-container .error-message {
+  margin-bottom: 2em;
+  color: #a481fb;
+}
+.input-container .error-message {
+  margin-bottom: 0;
+  margin-top: 0.5em;
+}
+
+.add-hamster-wrapper button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #febc5e;
+  border: #febc5e;
+  border-radius: 0.2em;
+  margin-top: 2em;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  height: 4vw;
+  padding: 1.3em;
+  box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
+}
+.add-hamster-wrapper button:hover {
+  background-color: #febc5eed;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .add-hamster-wrapper {
+    width: 400px;
+  }
+  .input-container {
+    width: 300px;
+  }
+}
+@media (max-width: 450px) {
+  .add-hamster-wrapper {
+    width: 300px;
+    margin-bottom: 5em;
+  }
+  .input-container {
+    width: 200px;
+  }
 }

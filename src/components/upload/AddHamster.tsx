@@ -19,39 +19,74 @@ const AddHamster = () => {
     getData()
   }, [])
 
-  const [name, setName] = useState<null | String>(null)
+  const [name, setName] = useState<String>('')
   const [age, setAge] = useState<null | Number>(null)
-  const [favFood, setFaveFood] = useState<null | String>(null)
-  const [loves, setLoves] = useState<null | String>(null)
-  const [image, setImage] = useState<null | String>(null)
+  const [favFood, setFavFood] = useState<String>('')
+  const [loves, setLoves] = useState<String>('')
+  const [imgName, setImgName] = useState<String>('')
+
+  const [nameStatus, setNameStatus] = useState('')
+  const [ageStatus, setAgeStatus] = useState('')
+  const [favFoodStatus, setFavFoodStatus] = useState('')
+  const [lovesStatus, setLovesStatus] = useState('')
+  const [imgNameStatus, setImgNameStatus] = useState('')
+
+  const [success, setSuccess] = useState<boolean>(false)
+  const [fail, setFail] = useState<boolean>(false)
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>): void => {
     let input = event.target.value
-    setName(input)
+    if (input !== '') {
+      setName(input)
+      setNameStatus('input-valid')
+    } else {
+      setName('')
+      setNameStatus('input-fail')
+    }
   }
+
   const handleAge = (event: React.ChangeEvent<HTMLInputElement>): void => {
     let input = event.target.value
-    setAge(Number(input))
+    if (Number(input)) {
+      setAge(Number(input))
+      setAgeStatus('input-valid')
+    } else {
+      setAge(null)
+      setAgeStatus('input-fail')
+    }
   }
+
   const handleFavFood = (event: React.ChangeEvent<HTMLInputElement>): void => {
     let input = event.target.value
-    setFaveFood(input)
+    if (input !== '') {
+      setFavFood(input)
+      setFavFoodStatus('input-valid')
+    } else {
+      setFavFood('')
+      setFavFoodStatus('input-fail')
+    }
   }
+
   const handleLoves = (event: React.ChangeEvent<HTMLInputElement>): void => {
     let input = event.target.value
-    setLoves(input)
+    if (input !== '') {
+      setLoves(input)
+      setLovesStatus('input-valid')
+    } else {
+      setLoves('')
+      setLovesStatus('input-fail')
+    }
   }
   const handleImage = (event: React.ChangeEvent<HTMLInputElement>): void => {
     let input = event.target.value
-    setImage(input)
+    if (input !== '') {
+      setImgName(input)
+      setImgNameStatus('input-valid')
+    } else {
+      setImgName('')
+      setImgNameStatus('input-fail')
+    }
   }
-
-  const nameIsValid = name !== ''
-  const ageIsValid = Number(age) >= 0
-  const favFoodIsValid = favFood !== ''
-  const lovesIsValid = loves !== ''
-  const imgNameIsValid = image !== ''
-  const formIsValid = nameIsValid && ageIsValid && favFoodIsValid && lovesIsValid && imgNameIsValid
 
   const addNewHamster = () => {
 
@@ -60,60 +95,86 @@ const AddHamster = () => {
       age: Number(age),
       favFood: favFood,
       loves: loves,
-      imgName: image,
+      imgName: imgName,
       defeats: 0,
       wins: 0,
       games: 0
     }
 
-    fetch(fixUrl('/hamsters'), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newHamster)
-    })
-    console.log(hamsters)
+    if (name && age && favFood && loves && imgName) {
+      try {
+        fetch(fixUrl('/hamsters'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newHamster)
+        })
+        setSuccess(true)
+        setFail(false)
+      } catch (error) {
+        setSuccess(false)
+        return error
+      }
+    } else {
+      setFail(true)
+      setSuccess(false)
+    }
+
   }
 
   return (
-    <section className='add-hamster-container'>
-      <h2>Add new hamster</h2>
-      <form id="">
-        <div className="">
-          <label htmlFor="name">Name</label>
-          <input className={`form-input ${!nameIsValid ? "error-input" : ""}`} onChange={handleName} type="text" name="name" />
-          {!nameIsValid ? <p className='error-message'>Name is missing</p> : ''}
-        </div>
-        <div className="">
-          <div className="">
-            <label htmlFor="age">Age</label>
-            <input className={`form-input ${!ageIsValid ? "error-input" : ""}`}  onChange={handleAge} type="text" name="age" />
-            {!ageIsValid ? <p className='error-message'>Age is missing</p> : ''}
-          </div>
-        </div>
-        <div className="">
-          <div className="">
-            <label htmlFor="fav-food">Favorite food</label>
-            <input className={`form-input ${!favFoodIsValid ? "error-input" : ""}`} onChange={handleFavFood} type="text" name="fav-food" />
-            {!favFoodIsValid ? <p className='error-message'>Favorite food is missing</p> : ''}
-          </div>
-        </div>
-        <div className="">
-          <div className="">
-            <label htmlFor="loves">Loves</label>
-            <input className={`form-input ${!lovesIsValid ? "error-input" : ""}`} onChange={handleLoves} type="text" name="loves" />
-            {!lovesIsValid ? <p className='error-message'>Loves is missing</p> : ''}
-          </div>
-        </div>
-        <div className="">
-          <div className="">
-            <label htmlFor="img">Image</label>
-            <input className={`form-input ${!imgNameIsValid ? "error-input" : ""}`} onChange={handleImage} type="text" name="img" />
-            {!imgNameIsValid ? <p className='error-message'>Image is missing</p> : ''}
-          </div>
-        </div>
-      </form>
-      <button disabled={formIsValid} onClick={addNewHamster}>Upload</button>
-    </section>
+    <section className='add-hamster-section'>
+      {success ?
+      <p className='success-message'>Yay!! Your hamster has succesfully been uploaded!</p> :
+      <>
+        <h2>Add new hamster</h2>
+        <div className='add-hamster-wrapper'>
+          <form className='add-form-container'>
+             {fail ? <p className="error-message">Please fill in all fields to upload a hamster!</p> : '' }
+            <div className="input-container">
+              <label htmlFor="name">Name</label>
+              <input
+              className={nameStatus}
+              onChange={handleName}
+              type="text"
+              name="name"/>
+            </div>
+            <div className="input-container">
+              <label htmlFor="age">Age</label>
+              <input
+              className={ageStatus}
+              onChange={handleAge}
+              type="text"
+              name="age" />
+              {ageStatus === 'input-fail' ? <p className="error-message">Age has to be a number</p> : ''}
+            </div>
+            <div className="input-container">
+              <label htmlFor="fav-food">Favorite food</label>
+              <input
+              className={favFoodStatus}
+              onChange={handleFavFood}
+              type="text"
+              name="fav-food" />
+            </div>
+            <div className="input-container">
+              <label htmlFor="loves">Hobby</label>
+              <input
+              className={lovesStatus}
+              onChange={handleLoves}
+              type="text"
+              name="loves"  />
+            </div>
+            <div className="input-container">
+              <label htmlFor="img">Image url</label>
+              <input
+              className={imgNameStatus}
+              onChange={handleImage}
+              type="text"
+              name="img" />
+            </div>
+          </form>
+            <button onClick={addNewHamster}>Upload </button>
+        </div> </>}
+      </section>
   )
 }
 
@@ -121,6 +182,6 @@ export default AddHamster
 
 
 /* TODO
-    - Fixa formIsValid
+    - DONE Fixa formIsValid
     - Styling
     - Skicka vidare till upload complete sida med hem hemknapp */
