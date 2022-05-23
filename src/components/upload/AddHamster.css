@@ -13,13 +13,7 @@
   margin: 0 1em 1.5em;
 }
 
-.add-hamster-section .success-message {
-  font-size: 2em;
-  width: 500px;
-  margin-bottom: 3em;
-}
-
-.add-hamster-wrapper {
+.add-hamster-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,13 +24,13 @@
   width: 600px;
 }
 
-.add-form-container {
+.add-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.input-container {
+.add-input-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,12 +38,12 @@
   margin-bottom: 1em;
 }
 
-.input-container label {
+.add-input-container label {
   align-self: flex-start;
   margin-bottom: 0.3em;
 }
 
-.input-container input {
+.add-input-container input {
   width: 100%;
   padding: 0.5em;
   font-size: 1em;
@@ -57,25 +51,30 @@
   border-radius: 3px;
 }
 
-.add-form-container .input-valid {
+.add-input-container .input-valid {
   border-radius: 2px;
 }
 
-.add-form-container .input-fail {
-  border: 1.8px solid #a481fb;
+.add-input-container .input-fail {
+  border: 2px solid #a481fb;
   border-radius: 2px;
 }
 
-.add-form-container .error-message {
+.add-success-message {
+  font-size: 1.5em;
+  margin-bottom: 2em;
+  padding: 0 1em;
+}
+.add-error-message {
   margin-bottom: 2em;
   color: #a481fb;
 }
-.input-container .error-message {
-  margin-bottom: 0;
+.input-error-message {
   margin-top: 0.5em;
+  color: #a481fb;
 }
 
-.add-hamster-wrapper button {
+.add-hamster-container button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +88,7 @@
   padding: 1.3em;
   box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
 }
-.add-hamster-wrapper button:hover {
+.add-hamster-container button:hover {
   background-color: #febc5eed;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
@@ -97,19 +96,19 @@
 }
 
 @media (max-width: 700px) {
-  .add-hamster-wrapper {
+  .add-hamster-container {
     width: 400px;
   }
-  .input-container {
+  .add-input-container {
     width: 300px;
   }
 }
 @media (max-width: 450px) {
-  .add-hamster-wrapper {
+  .add-hamster-container {
     width: 300px;
     margin-bottom: 5em;
   }
-  .input-container {
+  .add-input-container {
     width: 200px;
   }
 }
