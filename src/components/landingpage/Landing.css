@@ -1,5 +1,5 @@
 .landing-section {
-  margin: 0 0 3em 0;
+  margin-bottom: 10em;
   width: 100vw;
   display: flex;
 }
@@ -16,27 +16,33 @@
   letter-spacing: 1px;
   font-size: 3em;
   font-weight: 300;
-  margin: 0 0 0.8em;
+  margin-bottom: 1.2em;
 }
 
 .landing-section h3 {
   letter-spacing: 1px;
   font-size: 1.5em;
   font-weight: 300;
-  margin: 0 0 1em;
+  margin-bottom: 1em;
   text-transform: uppercase;
 }
 
 .p-landing {
   font-size: 1.2em;
   font-weight: 300;
-  margin: 0 15em 1.4em;
+  margin: 0 15em 3em;
   line-height: 1.3em;
 }
 
 @media (max-width: 1050px) {
   .p-landing {
-    margin: 0 2em 1em;
+    margin: 0 2em 3em;
     width: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .landing-section {
+    margin-bottom: 7em;
   }
 }

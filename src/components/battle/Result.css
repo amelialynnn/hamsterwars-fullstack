@@ -5,3 +5,9 @@
   align-items: center;
   margin-bottom: 10em;
 }
+
+@media (max-width: 500px) {
+  .result-container {
+    margin-bottom: 6em;
+  }
+}

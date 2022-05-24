@@ -29,6 +29,11 @@
   font-size: 1.3em;
 }
 
+.active {
+  background-color: #f9aeaa;
+  border: 1px solid #f9aeaa;
+}
+
 .nav-link {
   color: #ffffff;
   font-weight: 400;
