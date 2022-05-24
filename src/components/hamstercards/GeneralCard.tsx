@@ -19,7 +19,7 @@ const GeneralCard = ({ hamsterData }: Props) => {
 
   const deleteHamster = () => {
     setRemoveWarning('show-waring')
-    setHamsterInfo('hide-general-info')
+    setHamsterInfo('hide-general-p')
   }
   const cancelDelete = () => {
     setRemoveWarning('hide-waring')
@@ -49,7 +49,7 @@ const GeneralCard = ({ hamsterData }: Props) => {
             <p className='general-card-p' >{hamsterData.name}</p>
           </div>
           <div className="flip-card-back">
-            <h1>{hamsterData.name}</h1>
+            <h1 className={hamsterInfo}>{hamsterData.name}</h1>
             <div className={hamsterInfo}>
               <p>Age: {hamsterData.age} years old</p>
               <p>Favorite food: {hamsterData.favFood}</p>
@@ -61,8 +61,10 @@ const GeneralCard = ({ hamsterData }: Props) => {
             </div>
             <div className={removeWarning}>
               <p>Are you sure you want to delete {hamsterData.name}?</p>
-              <button onClick={() => approvedDelete((hamsterData.id))}>Yes!</button>
-              <button onClick={cancelDelete}>Cancel</button>
+              <div className='final-remove'>
+                <button onClick={() => approvedDelete((hamsterData.id))}>Yes!</button>
+                <button onClick={cancelDelete}>Cancel</button>
+              </div>
             </div>
           </div>
         </div>

@@ -31,3 +31,9 @@
     width: auto;
   }
 }
+
+@media (max-width: 450px) {
+  .cutest-container {
+    padding: 2em 2em;
+  }
+}

@@ -37,7 +37,7 @@
 .intro-project {
   font-size: 1em;
   font-weight: 300;
-  width: 85vw;
+  width: 800px;
   line-height: 1.3em;
   font-style: italic;
 }
@@ -56,10 +56,22 @@
     margin: 0 2em 3em;
     width: auto;
   }
+  .intro-project {
+    width: 600px;
+  }
+}
+
+@media (max-width: 700px) {
+  .intro-project {
+    width: 400px;
+  }
 }
 
 @media (max-width: 500px) {
   .landing-section {
     margin-bottom: 7em;
+  }
+  .intro-project {
+    width: 300px;
   }
 }

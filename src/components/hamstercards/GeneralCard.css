@@ -1,12 +1,13 @@
 .general-card-img {
   border-radius: 50%;
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
 .general-card-p {
-  margin: 1em 0;
+  margin: 0.5em 0;
   font-weight: 500;
+  line-height: 1.4em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +15,7 @@
 }
 
 .flip-card {
-  width: 300px;
+  width: 250px;
   height: 310px;
   perspective: 1000px;
 }
@@ -51,14 +52,25 @@
   border-radius: 3px;
   text-transform: uppercase;
 }
+.flip-card-front .general-card-p {
+  font-size: 1.5em;
+}
 
 .flip-card-back {
   background-color: #a481fb76;
   border-radius: 3px;
   transform: rotateY(180deg);
+  gap: 5px;
+}
+.flip-card-back h1 {
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+.flip-card-back .general-card-p {
+  margin: 0;
 }
 
-/* Hamster Gallary */
+/* Hamster Gallery */
 .remove-hamster {
   display: none;
 }
@@ -73,8 +85,6 @@
   }
 
   .flip-card {
-    width: 30vw;
-    height: 300px;
     margin-bottom: 2em;
   }
 }
@@ -83,9 +93,5 @@
   .general-card-img {
     width: 170px;
     height: 170px;
-  }
-
-  .flip-card {
-    width: 50vw;
   }
 }
