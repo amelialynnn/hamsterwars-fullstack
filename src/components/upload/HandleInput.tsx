@@ -19,6 +19,7 @@ const HandleInput = () => {
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>): void => {
     let input = event.target.value
+
     if (input !== '') {
       setName(input)
       setNameStatus('input-valid')
@@ -30,10 +31,12 @@ const HandleInput = () => {
 
   const handleAge = (event: React.ChangeEvent<HTMLInputElement>): void => {
     let input = event.target.value
-    if (Number(input)) {
-      setAge(Number(input))
+    let regex = /^[0-9]{0,2}$/
+
+    if (input !== '' && input.match(regex)) {
+      setAge(input)
       setAgeStatus('input-valid')
-    } else {
+    }  else {
       setAge('')
       setAgeStatus('input-fail')
     }
@@ -41,7 +44,9 @@ const HandleInput = () => {
 
   const handleFavFood = (event: React.ChangeEvent<HTMLInputElement>): void => {
     let input = event.target.value
-    if (input !== '') {
+    let regex = /^[a-z\s]+$/
+
+    if (input !== '' && input.match(regex)) {
       setFavFood(input)
       setFavFoodStatus('input-valid')
     } else {
@@ -52,7 +57,9 @@ const HandleInput = () => {
 
   const handleLoves = (event: React.ChangeEvent<HTMLInputElement>): void => {
     let input = event.target.value
-    if (input !== '') {
+    let regex = /^[a-z\s]+$/
+
+    if (input !== '' && input.match(regex)) {
       setLoves(input)
       setLovesStatus('input-valid')
     } else {
@@ -81,6 +88,7 @@ const HandleInput = () => {
       onChange={handleName}
       type="text"
       name="name"/>
+      {nameStatus === 'input-fail' ? <p className="input-error-message">Name is required</p> : ''}
     </div>
     <div className="add-input-container">
       <label htmlFor="age">Age</label>
@@ -90,7 +98,7 @@ const HandleInput = () => {
       onChange={handleAge}
       type="text"
       name="age" />
-      {ageStatus === 'input-fail' ? <p className="input-error-message">Age has to be a number</p> : ''}
+      {ageStatus === 'input-fail' ? <p className="input-error-message">Age has to be an integer between 0 to 99 </p> : ''}
     </div>
     <div className="add-input-container">
       <label htmlFor="fav-food">Favorite food</label>
@@ -100,6 +108,7 @@ const HandleInput = () => {
       onChange={handleFavFood}
       type="text"
       name="fav-food" />
+      {favFoodStatus === 'input-fail' ? <p className="input-error-message">Only lowercase characters a-z</p> : ''}
     </div>
     <div className="add-input-container">
       <label htmlFor="loves">Hobby</label>
@@ -109,6 +118,7 @@ const HandleInput = () => {
       onChange={handleLoves}
       type="text"
       name="loves"  />
+      {lovesStatus === 'input-fail' ? <p className="input-error-message">Only lowercase characters a-z</p> : ''}
     </div>
     <div className="add-input-container">
       <label htmlFor="img">Image url</label>
@@ -118,6 +128,7 @@ const HandleInput = () => {
       onChange={handleImage}
       type="text"
       name="img" />
+      {imgNameStatus  === 'input-fail' ? <p className="input-error-message">Image url is required</p> : ''}
     </div>
     </>
   )

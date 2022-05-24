@@ -34,6 +34,23 @@
   line-height: 1.3em;
 }
 
+.intro-project {
+  font-size: 1em;
+  font-weight: 300;
+  width: 85vw;
+  line-height: 1.3em;
+  font-style: italic;
+}
+
+.name-sign {
+  color: #a481fb;
+  font-weight: 400;
+  white-space: nowrap;
+  position: relative;
+  top: 1em;
+  left: 1em;
+}
+
 @media (max-width: 1050px) {
   .p-landing {
     margin: 0 2em 3em;

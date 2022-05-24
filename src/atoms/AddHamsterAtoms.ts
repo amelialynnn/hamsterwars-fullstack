@@ -5,7 +5,7 @@ const NameAtom = atom<string>( {
   default: ''
 })
 
-const AgeAtom = atom<string | number>( {
+const AgeAtom = atom<string>( {
   key: 'AgeAtom',
   default: ''
 })
@@ -28,27 +28,27 @@ const ImgNameAtom = atom<string>( {
 export { NameAtom, AgeAtom, FavFoodAtom, LovesAtom, ImgNameAtom }
 
 const NameStatusAtom = atom<string>( {
-  key: 'nameStatus',
+  key: 'NameStatus',
   default: ''
 })
 
 const AgeStatusAtom = atom<string>( {
-  key: 'ageStatus',
+  key: 'AgeStatus',
   default: ''
 })
 
 const FavFoodStatusAtom = atom<string>( {
-  key: 'favFoodStatus',
+  key: 'FavFoodStatus',
   default: ''
 })
 
 const LovesStatusAtom = atom<string>( {
-  key: 'lovesStatus',
+  key: 'LovesStatus',
   default: ''
 })
 
 const ImgNameStatusAtom = atom<string>( {
-  key: 'imgNameStatus',
+  key: 'ImgNameStatus',
   default: ''
 })
 
