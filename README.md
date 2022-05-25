@@ -19,8 +19,7 @@ Start the backend server.
 ### `npm run dev`
 
 Run the app in development mode. Open http://localhost:3000 to view page in the browser.
-The page will reload if you make edits. Any errors will be visible in your console.
 
 ### `npm run build`
 
-Builds the project for production and bundle necessary files in the dist folder.
+Builds the project for production and bundles necessary files in the dist folder.

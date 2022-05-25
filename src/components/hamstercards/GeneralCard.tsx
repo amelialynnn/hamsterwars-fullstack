@@ -5,6 +5,7 @@ import { useRecoilState } from 'recoil'
 import { HamstersAtom } from '../../atoms/HamstersAtom'
 import { Hamster } from '../../models/Hamsters'
 
+import HamsterPopup from './HamsterPopup'
 import './GeneralCard.css'
 
 interface Props {
@@ -49,7 +50,10 @@ const GeneralCard = ({ hamsterData }: Props) => {
             <p className='general-card-p' >{hamsterData.name}</p>
           </div>
           <div className="flip-card-back">
-            <h1 className={hamsterInfo}>{hamsterData.name}</h1>
+            <div>
+              <HamsterPopup />
+            </div>
+            <h1 className={hamsterInfo}>{hamsterData.name} </h1>
             <div className={hamsterInfo}>
               <p>Age: {hamsterData.age} years old</p>
               <p>Favorite food: {hamsterData.favFood}</p>
