@@ -51,7 +51,7 @@ const GeneralCard = ({ hamsterData }: Props) => {
           </div>
           <div className="flip-card-back">
             <div>
-              <HamsterPopup />
+              <HamsterPopup hamsterData={hamsterData}/>
             </div>
             <h1 className={hamsterInfo}>{hamsterData.name} </h1>
             <div className={hamsterInfo}>
