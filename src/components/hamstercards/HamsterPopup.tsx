@@ -45,6 +45,7 @@ const HamsterPopup = ({hamsterData}: Props) => {
       const data: Hamster = await response.json()
       losersList.push(data)
     }
+
     setLosers(losersList)
   }
 
