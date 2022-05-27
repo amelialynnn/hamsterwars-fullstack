@@ -59,24 +59,31 @@ const HamsterPopup = ({hamsterData}: Props) => {
   </div>
 
   <section className='hamster-modal'>
-    <Modal
-      isOpen={modalIsOpen}
-      onRequestClose={closeModal}
-      >
-    <button onClick={closeModal}>close</button>
-    {losers ? (<div className='match-losers-container'>
-        <h2>{selectedHamster?.name} has defeated</h2>
-        {losers.map((loser, index) => (
-          <div key={index} className='match-loser' >
-            <img className='match-loser-img' src={fixImageUrl(loser.imgName)} alt="Defeated hamster" />
-            <p>{loser.name}</p>
-          </div>
-        ))}
-      </div>) : (
-      <div className='no-victories'>
-        <p>Poor {selectedHamster?.name} has never won but is pretty darn cute anyway!</p>
-      </div>)}
-    </Modal>
+    <div className='test'>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className="Modal"
+        overlayClassName="Overlay"
+        >
+      <button className='modal-btn' onClick={closeModal}><i className="bi bi-x-lg"></i>
+      </button>
+      {losers ? (<div  className='losers-list'>
+          <h2>{selectedHamster?.name} has defeated</h2>
+          <div className='match-losers-container'>
+          {losers.map((loser, index) => (
+            <div key={index} className='match-loser' >
+              <img className='match-loser-img' src={fixImageUrl(loser.imgName)} alt="Defeated hamster" />
+              <p>{loser.name}</p>
+            </div>
+          ))}
+        </div>
+        </div>) : (
+        <div className='no-victories'>
+          <p>Poor {selectedHamster?.name} has never won but is pretty darn cute anyway!</p>
+        </div>)}
+      </Modal>
+    </div>
   </section>
 </>)}
 

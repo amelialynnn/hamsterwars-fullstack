@@ -40,41 +40,28 @@ const GeneralCard = ({ hamsterData }: Props) => {
     setHamsterInfo('general-card-p')
   }
 
-  //TODO
-  // - id på hamster som ska tas bort:
-  // - ta bort match
-  // - och uppdatera i hamsterobjekt så vinst eller förlust korrigeras
-
   const approvedDelete = (id: String) => {
-    console.log('Alla matcher', allMatches)
 
-    // selectedFiltered - hitta matcher med vald hamster id
+    // selectedHamsterMatches - hitta matcher med vald hamsters id
     const selectedHamsterMatches = allMatches?.filter(x => x.loserId === id || x.winnerId === id)
 
-    console.log('Selected hamster matcher', selectedHamsterMatches)
-
-    // vilka hamster id som ska uppdateras
-    // om loserID: hamstern ska få -1 på förluster
+    // vilka hamster idn som ska uppdateras:
+    // om loserID: hamstern ska få -1 på förluster och -1 på matcher
     const updateMatchLosers = selectedHamsterMatches?.filter(function(item) {
       return item.loserId !== id
     }).map(function(item){
       return item.loserId
     })
 
-    // om winnerID: hamstern ska få -1 på vinster
+    // om winnerID: hamstern ska få -1 på vinster och -1 på matcher
     const updateMatchWinners = selectedHamsterMatches?.filter(function(item) {
       return item.winnerId !== id
     }).map(function(item){
       return item.winnerId
     })
 
-    console.log('updateMatchLosers', updateMatchLosers)
-    console.log('updateMatchWinners', updateMatchWinners)
-
     if (updateMatchLosers) {
       if (updateMatchLosers.length > 0) {
-        console.log('update loser: hamstern ska få -1 på förluster & -1 på matcher')
-
         for (let i = 0; i < updateMatchLosers.length; i++) {
         fetch(fixUrl(`/hamsters/${updateMatchLosers[i]}`))
           .then(respons => respons.json())
@@ -94,8 +81,6 @@ const GeneralCard = ({ hamsterData }: Props) => {
 
     if (updateMatchWinners) {
       if (updateMatchWinners.length > 0) {
-        console.log('update winner: hamstern ska få -1 på vinster & -1 på matcher')
-
         for (let i = 0; i < updateMatchWinners.length; i++) {
           fetch(fixUrl(`/hamsters/${updateMatchWinners[i]}`))
           .then(respons => respons.json())
@@ -118,10 +103,9 @@ const GeneralCard = ({ hamsterData }: Props) => {
       method: 'DELETE',
     })
 
-     // Ta bort matchobject
+    // Ta bort matchobjekt
     if (selectedHamsterMatches) {
       if (selectedHamsterMatches.length > 0) {
-        console.log(selectedHamsterMatches)
         for (let i = 0; i < selectedHamsterMatches.length; i++) {
           fetch(fixUrl(`/matches/${selectedHamsterMatches[i].id}`), {
             method: 'DELETE',
