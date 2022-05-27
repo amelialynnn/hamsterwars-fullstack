@@ -16,6 +16,7 @@ const AddHamster = () => {
   const [hamsters, setHamsters] = useRecoilState(HamstersAtom)
 
   useEffect(() => {
+    setSuccess(false)
     async function getData() {
       const response: Response = await fetch(fixUrl('/hamsters'))
       const apiData: Hamster[] = await response.json()
@@ -26,9 +27,6 @@ const AddHamster = () => {
 
   const [success, setSuccess] = useRecoilState(SuccessAtom)
   const [fail, setFail] = useRecoilState(FailAtom)
-
-
-  //här skulle den varit
 
   return (
     <section className='add-hamster-section'>
