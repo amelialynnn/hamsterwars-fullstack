@@ -55,7 +55,7 @@
 
 .Modal {
   position: absolute;
-  top: 25vh;
+  top: 15vh;
   left: 15vw;
   right: auto;
   bottom: 15vh;
@@ -122,10 +122,6 @@
 }
 .no-victories p {
   font-size: 20px;
-}
-
-@media (max-width: 1050px) {
-  .Modal {
-    top: 15vh;
-  }
+  text-align: center;
+  margin: 0 30px;
 }
