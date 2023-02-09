@@ -2,7 +2,7 @@
   "name": "fullstack-hamsterwars",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://amelialynnn.github.io/hamsterwars-fullstack/",
+  "homepage": "https://amelialynnn.github.io/",
   "description": "Fullstack app: Backend - REST API with Node.js, Express and Firestore. Frontend - built with React and TypeScript",
   "author": "Amelia Andreasson",
   "type": "module",
