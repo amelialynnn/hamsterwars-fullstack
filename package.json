@@ -2,6 +2,7 @@
   "name": "fullstack-hamsterwars",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://amelialynnn.github.io/hamsterwars-fullstack/",
   "description": "Fullstack app: Backend - REST API with Node.js, Express and Firestore. Frontend - built with React and TypeScript",
   "author": "Amelia Andreasson",
   "type": "module",
@@ -9,7 +10,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start": "node backend/server.js"
+    "start": "node backend/server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
@@ -30,6 +33,7 @@
     "@types/react-dom": "^18.0.0",
     "@types/react-modal": "^3.13.1",
     "@vitejs/plugin-react": "^1.3.0",
+    "gh-pages": "^5.0.0",
     "typescript": "^4.6.3",
     "vite": "^2.9.7"
   }
